@@ -6,13 +6,10 @@ const CreateTask = ({ tasks, setTasks }) => {
     function handleSubmit(e) {
       e.preventDefault();
       const formData = new FormData(e.target);
-      const form = Object.fromEntries(formData.entries());
-      console.log(form);
-      const nameOfTask = form.taskName.trim();
+      const inputValidation = formData.get("taskName")?.trim();
 
-        if (!nameOfTask) return;
-        setTasks([...tasks, {'id': uuidv4(), 'name': nameOfTask }]);
-        console.log(nameOfTask);
+        if (!inputValidation) return;
+        setTasks([...tasks, {'id': uuidv4(), 'name': inputValidation }]);
     }
 
     return(
