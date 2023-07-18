@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-const History = () => {
+const Completed = () => {
     return(
         <StyledDiv>
-            <h1>History</h1>
+            <h1>Completed</h1>
         </StyledDiv>
     );
 };
@@ -15,4 +15,4 @@ const StyledDiv = styled.div`
     height: 100vh;
 `
 
-export default History;
+export default Completed;

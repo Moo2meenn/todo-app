@@ -16,6 +16,7 @@ const StyledDiv = styled.div`
     background-color: darkgray;
     margin-left: 15%;
     padding: 1rem;
+    height: 100vh;
 `
 
 export default Tasks;

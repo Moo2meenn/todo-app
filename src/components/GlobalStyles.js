@@ -50,13 +50,14 @@ button{
 }
 
 a{
+    font-size: 1.5rem;
     text-decoration: none;
     color: black;
     transition: .1s;
 
     &:hover{
         font-weight: 800;
-        transition: .1s;
+        transition: .2s;
     }
 }
 `;
