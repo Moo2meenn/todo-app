@@ -15,7 +15,7 @@ const CreateTask = ({ tasks, setTasks }) => {
   return (
     <StyledForm onSubmit={handleSubmit}>
       <StyledName name="taskName" type="text" placeholder="Insert task name" />
-      <button type="submit">Done</button>
+      <button type="submit">Add</button>
     </StyledForm>
   );
 };

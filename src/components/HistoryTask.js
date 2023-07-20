@@ -26,9 +26,8 @@ const Task = ({ history, name, time, status }) => {
 const StyledDiv = styled.div`
   display: flex;
   padding: 0.6rem;
-  width: 40rem;
+  width: 100%;
   border-radius: 1.3rem;
-  margin: 1rem;
   background-color: lightblue;
 `;
 

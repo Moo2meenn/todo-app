@@ -10,16 +10,19 @@ const Tasks = ({ tasks, setTasks, history, setHistory }) => {
       <InnerDiv>
         {tasks.length === 0 ? <h2>Add some tasks to show up here!</h2> : null}
         {tasks
-          .map((task) => (
-            <Task
-              setTasks={setTasks}
-              tasks={tasks}
-              taskName={task.name}
-              id={task.id}
-              key={task.id}
-              history={history}
-              setHistory={setHistory}
-            />
+          .map((task, index) => (
+            <WrapperDiv>
+              <Task
+                setTasks={setTasks}
+                tasks={tasks}
+                taskName={task.name}
+                id={task.id}
+                key={task.id}
+                history={history}
+                setHistory={setHistory}
+              />
+              {index === 0 ? null : <LineDiv />}
+            </WrapperDiv>
           ))
           .reverse()}
       </InnerDiv>
@@ -36,10 +39,23 @@ const StyledDiv = styled.div`
 
 const InnerDiv = styled.div`
   height: 75vh;
-  width: 75%;
+  width: 97.4%;
   overflow: auto;
-  margin: 3rem;
-  padding: 0.1rem;
+  margin: 4rem 0rem 0rem 1rem;
+  padding: 0rem;
+  background-color: red;
+`;
+
+const WrapperDiv = styled.div`
+  padding: 0;
+  margin: 0;
+`;
+
+const LineDiv = styled.div`
+  width: 98.8%;
+  height: 0.1rem;
+  margin: 0.5rem;
+  background-color: blue;
 `;
 
 export default Tasks;

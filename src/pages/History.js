@@ -10,14 +10,17 @@ const History = ({ history }) => {
       <InnerDiv>
         {history.length === 0 ? <h2>There is no log history!</h2> : null}
         {history
-          .map((task) => (
-            <HistoryTask
-              history={history}
-              name={task.taskName}
-              time={task.deleteTime}
-              status={task.status}
-              key={task.id}
-            />
+          .map((task, index) => (
+            <WrapperDiv>
+              <HistoryTask
+                history={history}
+                name={task.taskName}
+                time={task.deleteTime}
+                status={task.status}
+                key={task.id}
+              />
+              {index === 0 ? null : <LineDiv />}
+            </WrapperDiv>
           ))
           .reverse()}
       </InnerDiv>
@@ -28,15 +31,29 @@ const History = ({ history }) => {
 const StyledDiv = styled.div`
   background-color: darkgray;
   margin-left: 15%;
+  padding: 1rem;
   height: 100vh;
 `;
 
 const InnerDiv = styled.div`
   height: 75vh;
-  width: 75%;
+  width: 97.4%;
   overflow: auto;
-  margin: 3rem;
-  padding: 0.1rem;
+  margin: 4rem 0rem 0rem 1rem;
+  padding: 0rem;
+  background-color: red;
+`;
+
+const WrapperDiv = styled.div`
+  padding: 0;
+  margin: 0;
+`;
+
+const LineDiv = styled.div`
+  width: 98.8%;
+  height: 0.1rem;
+  margin: 0.5rem;
+  background-color: blue;
 `;
 
 export default History;
