@@ -11,19 +11,23 @@ const Nav = () => {
         style={{
           transform:
             pathname === "/"
-              ? "translateY(5.27rem)"
+              ? "translateY(5.44rem)"
               : pathname === "/logs"
-              ? "translateY(8.42rem)"
+              ? "translateY(9.44rem)"
               : "none",
         }}
       />
       <StyledUl>
-        <ActiveLink to="/" className="link" exact>
-          <StyledLi isActive={pathname === "/"}>Tasks</StyledLi>
-        </ActiveLink>
-        <ActiveLink to="/logs" className="link">
-          <StyledLi isActive={pathname === "/logs"}>History</StyledLi>
-        </ActiveLink>
+        <StyledLi $isActive={pathname === "/"}>
+          <StyledLink to="/" className="link">
+            Tasks
+          </StyledLink>
+        </StyledLi>
+        <StyledLi $isActive={pathname === "/logs"}>
+          <StyledLink to="/logs" className="link">
+            History
+          </StyledLink>
+        </StyledLi>
       </StyledUl>
     </StyledNav>
   );
@@ -40,6 +44,15 @@ const SelectionBG = styled.div`
   position: absolute;
   background-color: red;
   transition: 0.3s;
+`;
+
+const StyledLink = styled(Link)`
+  padding-inline: 1rem;
+  width: 100%;
+  display: block;
+  border: 1px solid green;
+  transition: 0.1s;
+  transition-timing-function: ease-in-out;
 `;
 
 const StyledNav = styled.div`
@@ -65,29 +78,17 @@ const StyledH1 = styled.h1`
     padding-right: 0.2;
     transform: translateY(0.4rem);
     transition: 0.4s;
-    font-weight: 600;
   }
 `;
 
 const StyledLi = styled.li`
-  font-size: 1.5rem;
-  text-decoration: none;
-  user-select: none;
-  color: black;
-  transition: 0.1s;
-  font-weight: ${({ isActive }) => (isActive ? "800" : "500")};
-  &:hover {
+  margin: 1rem 0rem;
+  height: 3rem;
+  line-height: 3rem;
+  align-self: center;
+  font-weight: ${({ $isActive }) => ($isActive ? "800" : "500")};
+  &:hover a {
     font-weight: 800;
-    transition: 0.2s;
-  }
-`;
-
-const activeClassName = "active";
-
-const ActiveLink = styled(Link).attrs({ activeClassName })`
-  &.${activeClassName} {
-    font-weight: 800;
-    transition: 0.2s;
   }
 `;
 

@@ -45,7 +45,6 @@ button{
     &:hover{
         cursor: pointer;
         border-radius: 1rem;
-        transition: .1;
     }
 }
 
@@ -54,11 +53,7 @@ a{
     text-decoration: none;
     color: black;
     transition: .1s;
-
-    &:hover{
-        font-weight: 800;
-        transition: .2s;
-    }
+    transition-timing-function: ease-in-out;
 }
 `;
 

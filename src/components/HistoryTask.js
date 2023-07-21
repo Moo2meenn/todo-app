@@ -11,8 +11,6 @@ const Task = ({
   status,
   id,
 }) => {
-  console.log(history);
-  console.log(tasks);
   const restoreHandler = () => {
     setTasks([...tasks, { id: id, name: name }]);
     setHistory(history.filter((t) => !(t.status === "Deleted" && t.id === id)));
