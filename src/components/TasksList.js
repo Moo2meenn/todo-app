@@ -4,11 +4,11 @@ const TasksList = () => {
   return [
     {
       id: uuidv4(),
-      name: "test",
+      name: "test - mo is loser",
     },
     {
       id: uuidv4(),
-      name: "test2",
+      name: "test2 - mo is more loser",
     },
     {
       id: uuidv4(),

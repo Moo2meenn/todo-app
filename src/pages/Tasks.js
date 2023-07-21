@@ -7,7 +7,6 @@ const Tasks = ({ tasks, setTasks, history, setHistory }) => {
   return (
     <StyledDiv>
       <h1>Tasks</h1>
-
       <CreateTask
         tasks={tasks}
         setTasks={setTasks}

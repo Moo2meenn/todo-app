@@ -1,6 +1,7 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import styled from "styled-components";
+import { BaseH1, BaseListItem, BaseLink } from "./GlobalStyles";
 
 const Nav = () => {
   const { pathname } = useLocation();
@@ -46,7 +47,7 @@ const SelectionBG = styled.div`
   transition: 0.3s;
 `;
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(BaseLink)`
   padding-inline: 1rem;
   width: 100%;
   display: block;
@@ -65,7 +66,7 @@ const StyledNav = styled.div`
   background-color: gray;
 `;
 
-const StyledH1 = styled.h1`
+const StyledH1 = styled(BaseH1)`
   padding: 0 1;
   text-align: center;
   margin-inline: auto;
@@ -81,7 +82,7 @@ const StyledH1 = styled.h1`
   }
 `;
 
-const StyledLi = styled.li`
+const StyledLi = styled(BaseListItem)`
   margin: 1rem 0rem;
   height: 3rem;
   line-height: 3rem;

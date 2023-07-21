@@ -1,29 +1,29 @@
 import React from "react";
 import styled from "styled-components";
-import Popup from "reactjs-popup";
+import EditTaskModal from "./EditTaskModal";
+import { BaseH2, BaseButton } from "./GlobalStyles";
 
 const Task = ({ tasks, setTasks, taskName, id, history, setHistory }) => {
   const deleteHandler = () => {
     const dateObject = new Date();
-    let date = dateObject
+
+    const deleteTime = dateObject
       .toUTCString()
       .slice(0, dateObject.toDateString.length - 4);
-    setHistory([
-      ...history,
-      { id: id, taskName: taskName, deleteTime: date, status: "Deleted" },
-    ]);
+
+    setHistory([...history, { id, taskName, deleteTime, status: "Deleted" }]);
     setTasks(tasks.filter((t) => t.id !== id));
   };
 
   const doneHandler = () => {
     const dateObject = new Date();
-    let date = dateObject
+
+    const deleteTime = dateObject
       .toUTCString()
       .slice(0, dateObject.toDateString.length - 4);
-    setHistory([
-      ...history,
-      { id: id, taskName: taskName, deleteTime: date, status: "Completed" },
-    ]);
+
+    setHistory([...history, { id, taskName, deleteTime, status: "Completed" }]);
+
     setTasks(tasks.filter((t) => t.id !== id));
   };
 
@@ -31,24 +31,13 @@ const Task = ({ tasks, setTasks, taskName, id, history, setHistory }) => {
     <StyledDiv>
       <StyledName>{taskName}</StyledName>
       <InnerDiv>
-        <button onClick={doneHandler}>Mark as Done</button>
-        <StyledPopup trigger={<button> Trigger</button>} modal nested>
-          <StyledPop>Popup content here !!</StyledPop>
-        </StyledPopup>
-        <button onClick={deleteHandler}>Delete</button>
+        <BaseButton onClick={doneHandler}>Mark as Done</BaseButton>
+        <EditTaskModal />
+        <BaseButton onClick={deleteHandler}>Delete</BaseButton>
       </InnerDiv>
     </StyledDiv>
   );
 };
-
-const StyledPopup = styled(Popup)`
-  &-overlay {
-    background-color: rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(2px);
-  }
-`;
-
-const StyledPop = styled.div``;
 
 const StyledDiv = styled.div`
   display: flex;
@@ -63,6 +52,6 @@ const InnerDiv = styled.div`
   margin-right: 0;
 `;
 
-const StyledName = styled.h2``;
+const StyledName = styled(BaseH2)``;
 
 export default Task;

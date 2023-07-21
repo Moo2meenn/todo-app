@@ -1,27 +1,29 @@
 import React from "react";
 import styled from "styled-components";
 import { v4 as uuidv4 } from "uuid";
+import { BaseButton } from "./GlobalStyles";
 
 const CreateTask = ({ tasks, setTasks, history, setHistory }) => {
   function handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData(e.target);
-    const inputValidation = formData.get("taskName")?.trim();
-    const tId = uuidv4();
+    const taskName = formData.get("taskName")?.trim();
+    const id = uuidv4();
 
     const dateObject = new Date();
-    let date = dateObject
-      .toUTCString()
-      .slice(0, dateObject.toDateString.length - 4);
 
-    if (!inputValidation) return;
-    setTasks([...tasks, { id: tId, name: inputValidation }]);
+    const deleteTime = dateObject.toUTCString();
+
+    if (!taskName) return;
+
+    setTasks([...tasks, { id, name: taskName }]);
+
     setHistory([
       ...history,
       {
-        id: tId,
-        taskName: inputValidation,
-        deleteTime: date,
+        id,
+        taskName,
+        deleteTime,
         status: "Created",
       },
     ]);
@@ -35,7 +37,7 @@ const CreateTask = ({ tasks, setTasks, history, setHistory }) => {
         placeholder="Insert task name"
         maxLength="32"
       />
-      <button type="submit">Add</button>
+      <BaseButton type="submit">Add</BaseButton>
     </StyledForm>
   );
 };
@@ -47,6 +49,7 @@ const StyledForm = styled.form`
   border-radius: 1.3rem;
   margin: 1rem;
   background-color: lightblue;
+  justify-content: space-between;
 `;
 
 const StyledName = styled.input`
@@ -57,6 +60,7 @@ const StyledName = styled.input`
   padding: 0.2rem 0.8rem;
   height: 2rem;
   width: 100%;
+  margin-right: 0.6rem;
   font-size: 1.6rem;
   color: #1f1f1f;
 `;

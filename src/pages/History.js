@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-//Import components
 import HistoryTask from "../components/HistoryTask";
 
 const History = ({ history, setHistory, tasks, setTasks }) => {
@@ -11,7 +10,7 @@ const History = ({ history, setHistory, tasks, setTasks }) => {
         {history.length === 0 ? <h2>There is no log history!</h2> : null}
         {history
           .map((task, index) => (
-            <WrapperDiv>
+            <WrapperDiv key={task.id}>
               <HistoryTask
                 history={history}
                 name={task.taskName}
@@ -21,7 +20,6 @@ const History = ({ history, setHistory, tasks, setTasks }) => {
                 tasks={tasks}
                 setTasks={setTasks}
                 id={task.id}
-                key={task.id}
               />
               {index === 0 ? null : <LineDiv />}
             </WrapperDiv>
