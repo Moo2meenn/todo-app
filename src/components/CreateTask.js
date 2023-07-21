@@ -7,12 +7,13 @@ const CreateTask = ({ setTasks, setHistory }) => {
   function handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData(e.target);
-    const name = formData.get("taskName")?.trim();
+    const name = formData.get("name")?.trim();
+    const category = formData.get("category")?.trim();
 
-    if (!name) return;
+    if (!name || !category) return;
 
     const time = new Date().toUTCString();
-    const task = { name, id: uuidv4() };
+    const task = { name, id: uuidv4(), category };
 
     setTasks((tasks) => [...tasks, task]);
 
@@ -29,9 +30,15 @@ const CreateTask = ({ setTasks, setHistory }) => {
   return (
     <StyledForm onSubmit={handleSubmit}>
       <StyledName
-        name="taskName"
+        name="name"
         type="text"
         placeholder="Insert task name"
+        maxLength="32"
+      />
+      <StyledName
+        name="category"
+        type="text"
+        placeholder="Insert category name"
         maxLength="32"
       />
       <BaseButton type="submit">Add</BaseButton>

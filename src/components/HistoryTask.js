@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { BaseH2, BaseButton } from "./GlobalStyles";
 
-const Task = ({ history, setHistory, tasks, setTasks, task }) => {
+const Task = ({ task, setTasks, setHistory }) => {
   const restoreHandler = () => {
     setTasks((tasks) => [...tasks, task]);
 

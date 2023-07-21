@@ -3,7 +3,7 @@ import styled from "styled-components";
 import EditTaskModal from "./EditTaskModal";
 import { BaseH2, BaseButton } from "./GlobalStyles";
 
-const Task = ({ tasks, setTasks, task, history, setHistory }) => {
+const Task = ({ task, setTasks, setHistory }) => {
   const deleteHandler = () => {
     const time = new Date().toUTCString();
     setHistory((history) => [...history, { ...task, time, status: "Deleted" }]);

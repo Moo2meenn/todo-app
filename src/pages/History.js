@@ -18,10 +18,8 @@ const History = ({ history, setHistory, tasks, setTasks }) => {
             <div key={`${task.id}${task.time}`}>
               <HistoryTask
                 task={task}
-                history={history}
-                setHistory={setHistory}
-                tasks={tasks}
                 setTasks={setTasks}
+                setHistory={setHistory}
               />
               {index !== 0 && <Divider />}
             </div>
