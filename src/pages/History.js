@@ -3,7 +3,7 @@ import styled from "styled-components";
 //Import components
 import HistoryTask from "../components/HistoryTask";
 
-const History = ({ history }) => {
+const History = ({ history, setHistory, tasks, setTasks }) => {
   return (
     <StyledDiv>
       <h1>History</h1>
@@ -17,6 +17,10 @@ const History = ({ history }) => {
                 name={task.taskName}
                 time={task.deleteTime}
                 status={task.status}
+                setHistory={setHistory}
+                tasks={tasks}
+                setTasks={setTasks}
+                id={task.id}
                 key={task.id}
               />
               {index === 0 ? null : <LineDiv />}
@@ -36,7 +40,7 @@ const StyledDiv = styled.div`
 `;
 
 const InnerDiv = styled.div`
-  height: 75vh;
+  height: 76vh;
   width: 97.4%;
   overflow: auto;
   margin: 4rem 0rem 0rem 1rem;

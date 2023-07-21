@@ -5,7 +5,6 @@ import GlobalStyles from "./components/GlobalStyles";
 import Nav from "./components/Nav";
 //Import pages
 import Tasks from "./pages/Tasks";
-import Completed from "./pages/Completed";
 import History from "./pages/History";
 import TasksList from "./components/TasksList";
 import HistoryList from "./components/HistoryList";
@@ -31,8 +30,17 @@ function App() {
             />
           }
         />
-        <Route path="/completed" element={<Completed />} />
-        <Route path="logs" element={<History history={history} />} />
+        <Route
+          path="logs"
+          element={
+            <History
+              history={history}
+              setHistory={setHistory}
+              tasks={tasks}
+              setTasks={setTasks}
+            />
+          }
+        />
       </Routes>
     </div>
   );

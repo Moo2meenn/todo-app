@@ -6,18 +6,24 @@ import CreateTask from "../components/CreateTask";
 const Tasks = ({ tasks, setTasks, history, setHistory }) => {
   return (
     <StyledDiv>
-      <CreateTask tasks={tasks} setTasks={setTasks} />
+      <h1>Tasks</h1>
+
+      <CreateTask
+        tasks={tasks}
+        setTasks={setTasks}
+        history={history}
+        setHistory={setHistory}
+      />
       <InnerDiv>
         {tasks.length === 0 ? <h2>Add some tasks to show up here!</h2> : null}
         {tasks
           .map((task, index) => (
-            <WrapperDiv>
+            <WrapperDiv key={task.id}>
               <Task
                 setTasks={setTasks}
                 tasks={tasks}
                 taskName={task.name}
                 id={task.id}
-                key={task.id}
                 history={history}
                 setHistory={setHistory}
               />
@@ -38,7 +44,7 @@ const StyledDiv = styled.div`
 `;
 
 const InnerDiv = styled.div`
-  height: 75vh;
+  height: 67vh;
   width: 97.4%;
   overflow: auto;
   margin: 4rem 0rem 0rem 1rem;

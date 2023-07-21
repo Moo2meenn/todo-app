@@ -11,45 +11,19 @@ const Nav = () => {
         style={{
           transform:
             pathname === "/"
-              ? "translateY(5.40rem)"
-              : pathname === "/completed"
-              ? "translateY(9.40rem)"
+              ? "translateY(5.27rem)"
               : pathname === "/logs"
-              ? "translateY(13.40rem)"
+              ? "translateY(8.42rem)"
               : "none",
         }}
       />
       <StyledUl>
-        <StyledLi
-          style={{
-            fontWeight: pathname === "/" ? "800" : "500",
-            transition: ".05s",
-          }}
-        >
-          <Link to="/" className="link">
-            Tasks
-          </Link>
-        </StyledLi>
-        <StyledLi
-          style={{
-            fontWeight: pathname === "/completed" ? "800" : "500",
-            transition: ".05s",
-          }}
-        >
-          <Link to="/completed" className="link">
-            Completed
-          </Link>
-        </StyledLi>
-        <StyledLi
-          style={{
-            fontWeight: pathname === "/logs" ? "800" : "500",
-            transition: ".05s",
-          }}
-        >
-          <Link to="/logs" className="link">
-            History
-          </Link>
-        </StyledLi>
+        <ActiveLink to="/" className="link" exact>
+          <StyledLi isActive={pathname === "/"}>Tasks</StyledLi>
+        </ActiveLink>
+        <ActiveLink to="/logs" className="link">
+          <StyledLi isActive={pathname === "/logs"}>History</StyledLi>
+        </ActiveLink>
       </StyledUl>
     </StyledNav>
   );
@@ -96,12 +70,25 @@ const StyledH1 = styled.h1`
 `;
 
 const StyledLi = styled.li`
-  padding-inline: 1rem;
-  margin: 1rem 0rem;
-  height: 3rem;
-  line-height: 3rem;
-  align-self: center;
-  transition: 0.3s;
+  font-size: 1.5rem;
+  text-decoration: none;
+  user-select: none;
+  color: black;
+  transition: 0.1s;
+  font-weight: ${({ isActive }) => (isActive ? "800" : "500")};
+  &:hover {
+    font-weight: 800;
+    transition: 0.2s;
+  }
+`;
+
+const activeClassName = "active";
+
+const ActiveLink = styled(Link).attrs({ activeClassName })`
+  &.${activeClassName} {
+    font-weight: 800;
+    transition: 0.2s;
+  }
 `;
 
 export default Nav;
