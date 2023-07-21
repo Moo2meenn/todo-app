@@ -1,11 +1,12 @@
 import React from "react";
-import styled from "styled-components";
 import Task from "../components/Task";
 import CreateTask from "../components/CreateTask";
+import { TasksView } from "../components/TasksView";
+import { Divider } from "../components/Divider";
 
 const Tasks = ({ tasks, setTasks, history, setHistory }) => {
   return (
-    <StyledDiv>
+    <>
       <h1>Tasks</h1>
       <CreateTask
         tasks={tasks}
@@ -13,54 +14,31 @@ const Tasks = ({ tasks, setTasks, history, setHistory }) => {
         history={history}
         setHistory={setHistory}
       />
-      <InnerDiv>
-        {tasks.length === 0 ? <h2>Add some tasks to show up here!</h2> : null}
+      <TasksView>
+        {tasks.length ? (
+          <Divider style={{ marginBlock: "1.47rem" }} />
+        ) : (
+          <h2 style={{ marginBlock: "1.47rem" }}>
+            Add some tasks to show up here!
+          </h2>
+        )}
         {tasks
           .map((task, index) => (
-            <WrapperDiv key={task.id}>
+            <div key={task.id}>
               <Task
                 setTasks={setTasks}
                 tasks={tasks}
-                taskName={task.name}
-                id={task.id}
+                task={task}
                 history={history}
                 setHistory={setHistory}
               />
-              {index === 0 ? null : <LineDiv />}
-            </WrapperDiv>
+              {index !== 0 && <Divider />}
+            </div>
           ))
           .reverse()}
-      </InnerDiv>
-    </StyledDiv>
+      </TasksView>
+    </>
   );
 };
-
-const StyledDiv = styled.div`
-  background-color: darkgray;
-  margin-left: 15%;
-  padding: 1rem;
-  height: 100vh;
-`;
-
-const InnerDiv = styled.div`
-  height: 67vh;
-  width: 97.4%;
-  overflow: auto;
-  margin: 4rem 0rem 0rem 1rem;
-  padding: 0rem;
-  background-color: red;
-`;
-
-const WrapperDiv = styled.div`
-  padding: 0;
-  margin: 0;
-`;
-
-const LineDiv = styled.div`
-  width: 98.8%;
-  height: 0.1rem;
-  margin: 0.5rem;
-  background-color: blue;
-`;
 
 export default Tasks;

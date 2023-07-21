@@ -3,33 +3,27 @@ import styled from "styled-components";
 import EditTaskModal from "./EditTaskModal";
 import { BaseH2, BaseButton } from "./GlobalStyles";
 
-const Task = ({ tasks, setTasks, taskName, id, history, setHistory }) => {
+const Task = ({ tasks, setTasks, task, history, setHistory }) => {
   const deleteHandler = () => {
-    const dateObject = new Date();
-
-    const deleteTime = dateObject
-      .toUTCString()
-      .slice(0, dateObject.toDateString.length - 4);
-
-    setHistory([...history, { id, taskName, deleteTime, status: "Deleted" }]);
-    setTasks(tasks.filter((t) => t.id !== id));
+    const time = new Date().toUTCString();
+    setHistory((history) => [...history, { ...task, time, status: "Deleted" }]);
+    setTasks((tasks) => tasks.filter((t) => t.id !== task.id));
   };
 
   const doneHandler = () => {
-    const dateObject = new Date();
+    const time = new Date().toUTCString();
 
-    const deleteTime = dateObject
-      .toUTCString()
-      .slice(0, dateObject.toDateString.length - 4);
+    setHistory((history) => [
+      ...history,
+      { ...task, time, status: "Completed" },
+    ]);
 
-    setHistory([...history, { id, taskName, deleteTime, status: "Completed" }]);
-
-    setTasks(tasks.filter((t) => t.id !== id));
+    setTasks((tasks) => tasks.filter((t) => t.id !== task.id));
   };
 
   return (
     <StyledDiv>
-      <StyledName>{taskName}</StyledName>
+      <StyledName>{task.name}</StyledName>
       <InnerDiv>
         <BaseButton onClick={doneHandler}>Mark as Done</BaseButton>
         <EditTaskModal />

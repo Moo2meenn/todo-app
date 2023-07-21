@@ -1,29 +1,26 @@
 import React from "react";
 import styled from "styled-components";
-import { v4 as uuidv4 } from "uuid";
 import { BaseButton } from "./GlobalStyles";
+import { v4 as uuidv4 } from "uuid";
 
-const CreateTask = ({ tasks, setTasks, history, setHistory }) => {
+const CreateTask = ({ setTasks, setHistory }) => {
   function handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData(e.target);
-    const taskName = formData.get("taskName")?.trim();
-    const id = uuidv4();
+    const name = formData.get("taskName")?.trim();
 
-    const dateObject = new Date();
+    if (!name) return;
 
-    const deleteTime = dateObject.toUTCString();
+    const time = new Date().toUTCString();
+    const task = { name, id: uuidv4() };
 
-    if (!taskName) return;
+    setTasks((tasks) => [...tasks, task]);
 
-    setTasks([...tasks, { id, name: taskName }]);
-
-    setHistory([
+    setHistory((history) => [
       ...history,
       {
-        id,
-        taskName,
-        deleteTime,
+        ...task,
+        time,
         status: "Created",
       },
     ]);
@@ -45,9 +42,8 @@ const CreateTask = ({ tasks, setTasks, history, setHistory }) => {
 const StyledForm = styled.form`
   display: flex;
   padding: 0.6rem;
-  width: 97.4%;
   border-radius: 1.3rem;
-  margin: 1rem;
+  margin: 1rem 2rem 0rem 0rem;
   background-color: lightblue;
   justify-content: space-between;
 `;
