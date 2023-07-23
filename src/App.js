@@ -8,12 +8,11 @@ import styled from "styled-components";
 import Tasks from "./pages/Tasks";
 import History from "./pages/History";
 
-import { useTasks, useTaskHistory, useCategories } from "./states";
+import { useTasks, useTaskHistory } from "./states";
 
 function App() {
   const [tasks, setTasks] = useTasks();
   const [history, setHistory] = useTaskHistory();
-  const [categories, setCategories] = useCategories();
 
   return (
     <div>
@@ -30,8 +29,6 @@ function App() {
                 setTasks={setTasks}
                 history={history}
                 setHistory={setHistory}
-                categories={categories}
-                setCategories={setCategories}
               />
             }
           />
