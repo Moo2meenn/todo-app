@@ -21,6 +21,7 @@ const Task = ({ task, setTasks, setHistory }) => {
   return (
     <StyledDiv>
       <StyledName>{task.name}</StyledName>
+      <h3>{task.category}</h3>
       <InnerDiv>
         <StyledH3>
           {task.status} • {task.time}

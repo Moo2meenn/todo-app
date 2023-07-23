@@ -1,19 +1,92 @@
-import React from "react";
+import React, { useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { styled, keyframes } from "styled-components";
 import { BaseButton } from "./GlobalStyles";
 
-const EditTaskModal = () => (
-  <Dialog.Root>
-    <Dialog.Trigger asChild>
-      <BaseButton className="Button violet">Edit profile</BaseButton>
-    </Dialog.Trigger>
-    <Dialog.Portal>
-      <StyledDialogOverlay />
-      <StyledDialogContent></StyledDialogContent>
-    </Dialog.Portal>
-  </Dialog.Root>
-);
+const EditTaskModal = ({ setTasks, setHistory, task }) => {
+  const [open, setOpen] = useState(false);
+
+  function handleEdit(e) {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const name = formData.get("name")?.trim();
+    const category = formData.get("category")?.trim();
+    const time = new Date().toUTCString();
+
+    if (!name || !category) return;
+
+    setHistory((history) => [
+      ...history,
+      {
+        ...task,
+        name: `${task.name} → ${name}`,
+        category: `${task.category} → ${category}`,
+        time,
+        status: "Modified",
+      },
+    ]);
+
+    setTasks((tasks) =>
+      tasks.map((t) => (t.id === task.id ? { ...task, name, category } : t))
+    );
+
+    setOpen(false);
+  }
+
+  return (
+    <Dialog.Root open={open} onOpenChange={setOpen}>
+      <Dialog.Trigger asChild>
+        <BaseButton>Edit profile</BaseButton>
+      </Dialog.Trigger>
+      <Dialog.Portal>
+        <StyledDialogOverlay />
+        <StyledDialogContent>
+          <h2>Modifying: {task.name}</h2>
+          <StyledForm onSubmit={handleEdit}>
+            <StyledName
+              name="name"
+              type="text"
+              placeholder="Insert task name"
+              maxLength="32"
+            />
+            <StyledName
+              name="category"
+              type="text"
+              placeholder="Insert category name"
+              maxLength="32"
+            />
+            <BaseButton type="submit">Modify</BaseButton>
+          </StyledForm>
+        </StyledDialogContent>
+      </Dialog.Portal>
+    </Dialog.Root>
+  );
+};
+
+const StyledForm = styled.form`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0.6rem;
+  border-radius: 1.3rem;
+  margin: 1rem 2rem 0rem 0rem;
+  background-color: lightblue;
+  justify-content: space-between;
+`;
+
+const StyledName = styled.input`
+  background-color: white;
+  border: none;
+  outline: none;
+  border-radius: 0.7rem;
+  padding: 0.2rem 0.8rem;
+  height: 2rem;
+  width: 100%;
+  margin-right: 0.6rem;
+  font-size: 1.6rem;
+  color: #1f1f1f;
+`;
 
 const overlayShow = keyframes`
   from {

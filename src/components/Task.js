@@ -24,9 +24,14 @@ const Task = ({ task, setTasks, setHistory }) => {
   return (
     <StyledDiv>
       <StyledName>{task.name}</StyledName>
+      <h3>{task.category}</h3>
       <InnerDiv>
         <BaseButton onClick={doneHandler}>Mark as Done</BaseButton>
-        <EditTaskModal />
+        <EditTaskModal
+          task={task}
+          setTasks={setTasks}
+          setHistory={setHistory}
+        />
         <BaseButton onClick={deleteHandler}>Delete</BaseButton>
       </InnerDiv>
     </StyledDiv>

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { BaseButton } from "./GlobalStyles";
 import { v4 as uuidv4 } from "uuid";
 
-const CreateTask = ({ setTasks, setHistory }) => {
+const CreateTask = ({ tasks, setTasks, setHistory }) => {
   function handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -26,7 +26,6 @@ const CreateTask = ({ setTasks, setHistory }) => {
       },
     ]);
   }
-
   return (
     <StyledForm onSubmit={handleSubmit}>
       <StyledName
@@ -56,7 +55,7 @@ const StyledForm = styled.form`
 `;
 
 const StyledName = styled.input`
-  background-color: transparent;
+  background-color: white;
   border: none;
   outline: none;
   border-radius: 0.7rem;
