@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import { BaseH2, BaseButton } from "./GlobalStyles";
 import { motion } from "framer-motion";

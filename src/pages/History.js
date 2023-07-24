@@ -1,10 +1,10 @@
-import React from "react";
 import HistoryTask from "../components/HistoryTask";
-import { TasksView } from "../components/TasksView";
 import { Divider } from "../components/Divider";
+import { TasksView } from "../components/TasksView";
+import styled from "styled-components";
 import { motion } from "framer-motion";
 
-const History = ({ history, setHistory, tasks, setTasks }) => {
+const History = ({ history, setHistory, setTasks }) => {
   return (
     <>
       <motion.h1
@@ -18,14 +18,14 @@ const History = ({ history, setHistory, tasks, setTasks }) => {
       {history.length ? (
         <Divider style={{ marginBlock: "1.47rem", width: "96.7%" }} />
       ) : (
-        <motion.h2
+        <StyledH2
           style={{ marginBlock: "1.47rem" }}
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 100, y: 0 }}
           transition={{ duration: 0.5 }}
         >
           There is no log history!
-        </motion.h2>
+        </StyledH2>
       )}
       <TasksView>
         {history
@@ -44,5 +44,9 @@ const History = ({ history, setHistory, tasks, setTasks }) => {
     </>
   );
 };
+
+const StyledH2 = styled(motion.h2)`
+  color: #3a4056;
+`;
 
 export default History;

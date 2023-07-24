@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import EditTaskModal from "./EditTaskModal";
 import { BaseH2, BaseButton } from "./GlobalStyles";

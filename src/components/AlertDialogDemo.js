@@ -1,4 +1,3 @@
-import React from "react";
 import * as AlertDialog from "@radix-ui/react-alert-dialog";
 import "./alert.css";
 import styled from "styled-components";

@@ -1,10 +1,9 @@
-import React from "react";
 import { Routes, Route } from "react-router-dom";
-//Import components
+
 import GlobalStyles from "./components/GlobalStyles";
 import Nav from "./components/Nav";
 import styled from "styled-components";
-//Import pages
+
 import Tasks from "./pages/Tasks";
 import History from "./pages/History";
 
@@ -38,7 +37,6 @@ function App() {
               <History
                 history={history}
                 setHistory={setHistory}
-                tasks={tasks}
                 setTasks={setTasks}
               />
             }

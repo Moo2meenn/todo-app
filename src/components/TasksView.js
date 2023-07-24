@@ -1,4 +1,3 @@
-import React from "react";
 import * as ScrollArea from "@radix-ui/react-scroll-area";
 import styled from "styled-components";
 
