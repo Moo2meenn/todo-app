@@ -25,6 +25,7 @@ const StyledScrollAreaViewport = styled(ScrollArea.Viewport)`
   height: 100%;
   border-radius: inherit;
   padding-right: 2rem;
+  padding-left: 5px;
 `;
 
 const StyledScrollAreaScrollbar = styled(ScrollArea.Scrollbar)`
@@ -32,12 +33,13 @@ const StyledScrollAreaScrollbar = styled(ScrollArea.Scrollbar)`
   user-select: none;
   touch-action: none;
   padding: 1px;
+  border-radius: 20px;
   margin: 10px;
-  background: #777777;
+  background: #dbdbdb;
   transition: background 160ms ease-out;
 
   &:hover {
-    background: var(--black-a8);
+    background: #c0c0c0;
   }
 
   &[data-orientation="vertical"] {
@@ -52,9 +54,10 @@ const StyledScrollAreaScrollbar = styled(ScrollArea.Scrollbar)`
 
 const StyledScrollAreaThumb = styled(ScrollArea.Thumb)`
   flex: 1;
-  background: #4a4aff;
-  border-radius: 1px;
+  background: #3a4056;
+  border-radius: 20px;
   position: relative;
+  margin: 2px 1px 10px 1px;
 
   &:before {
     content: "";

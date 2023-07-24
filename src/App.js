@@ -50,7 +50,7 @@ function App() {
 }
 
 const StyledContainer = styled.div`
-  background-color: darkgray;
+  background-color: #f5f5f5;
   height: 100vh;
   width: 85%;
   display: flex;

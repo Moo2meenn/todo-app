@@ -11,11 +11,12 @@ const History = ({ history, setHistory, tasks, setTasks }) => {
         initial={{ opacity: 0, x: -10 }}
         animate={{ opacity: 100, x: 0 }}
         transition={{ duration: 0.5 }}
+        style={{ color: "#303547" }}
       >
         History
       </motion.h1>{" "}
       {history.length ? (
-        <Divider style={{ marginBlock: "1.47rem" }} />
+        <Divider style={{ marginBlock: "1.47rem", width: "96.7%" }} />
       ) : (
         <motion.h2
           style={{ marginBlock: "1.47rem" }}
