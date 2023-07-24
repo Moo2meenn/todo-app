@@ -9,8 +9,16 @@ const EditTaskModal = ({ setTasks, setHistory, task }) => {
   function handleEdit(e) {
     e.preventDefault();
     const formData = new FormData(e.target);
-    const name = formData.get("name")?.trim();
-    const category = formData.get("category")?.trim();
+    const name = formData
+      .get("name")
+      ?.toLowerCase()
+      .trim()
+      .replace(/\b\w/g, (char) => char.toUpperCase());
+    const category = formData
+      .get("category")
+      ?.toLowerCase()
+      .trim()
+      .replace(/\b\w/g, (char) => char.toUpperCase());
     const time = new Date().toUTCString();
 
     if (!name || !category) return;
@@ -46,12 +54,14 @@ const EditTaskModal = ({ setTasks, setHistory, task }) => {
             <StyledName
               name="name"
               type="text"
+              defaultValue={task.name}
               placeholder="Insert task name"
               maxLength="32"
             />
             <StyledName
               name="category"
               type="text"
+              defaultValue={task.category}
               placeholder="Insert category name"
               maxLength="32"
             />

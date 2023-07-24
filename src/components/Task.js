@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import EditTaskModal from "./EditTaskModal";
 import { BaseH2, BaseButton } from "./GlobalStyles";
-import { motion } from "framer-motion";
 
 const Task = ({ task, setTasks, setHistory }) => {
   const deleteHandler = () => {
@@ -23,15 +22,8 @@ const Task = ({ task, setTasks, setHistory }) => {
   };
 
   return (
-    <StyledDiv
-      initial={{ opacity: 0, y: -50 }}
-      animate={{ opacity: 100, y: 0 }}
-      transition={{
-        duration: 0.1,
-      }}
-    >
+    <StyledDiv>
       <StyledName>{task.name}</StyledName>
-      <h3>{task.category}</h3>
       <InnerDiv>
         <BaseButton onClick={doneHandler}>Mark as Done</BaseButton>
         <EditTaskModal
@@ -45,7 +37,7 @@ const Task = ({ task, setTasks, setHistory }) => {
   );
 };
 
-const StyledDiv = styled(motion.div)`
+const StyledDiv = styled.div`
   display: flex;
   padding: 0.6rem;
   width: 100%;

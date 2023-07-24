@@ -7,9 +7,16 @@ const CreateTask = ({ tasks, setTasks, setHistory, onNewCategory }) => {
   function handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData(e.target);
-    const name = formData.get("name")?.trim();
-    const category = formData.get("category")?.trim();
-
+    const name = formData
+      .get("name")
+      ?.toLowerCase()
+      .trim()
+      .replace(/\b\w/g, (char) => char.toUpperCase()); // proper case
+    const category = formData
+      .get("category")
+      ?.toLowerCase()
+      .trim()
+      .replace(/\b\w/g, (char) => char.toUpperCase()); //proper case
     if (!name || !category) return;
 
     const time = new Date().toUTCString();

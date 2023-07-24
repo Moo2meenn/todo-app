@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { BaseH2, BaseButton } from "./GlobalStyles";
+import { motion } from "framer-motion";
 
 const Task = ({ task, setTasks, setHistory }) => {
   const restoreHandler = () => {
@@ -19,7 +20,14 @@ const Task = ({ task, setTasks, setHistory }) => {
   };
 
   return (
-    <StyledDiv>
+    <StyledDiv
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 100, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{
+        duration: 0.15,
+      }}
+    >
       <StyledName>{task.name}</StyledName>
       <h3>{task.category}</h3>
       <InnerDiv>
@@ -45,7 +53,7 @@ const Task = ({ task, setTasks, setHistory }) => {
   );
 };
 
-const StyledDiv = styled.div`
+const StyledDiv = styled(motion.div)`
   display: flex;
   padding: 0.6rem;
   width: 100%;
