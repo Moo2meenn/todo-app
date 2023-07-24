@@ -32,6 +32,9 @@ export const BaseButton = styled.button`
   padding: 0.5rem;
   background-color: white;
   border: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   outline: none;
   border-radius: 0.7rem;
   margin-inline: 0.2rem;
@@ -40,6 +43,14 @@ export const BaseButton = styled.button`
   &:hover {
     cursor: pointer;
     border-radius: 1rem;
+    opacity: 80%;
+  }
+  svg {
+    aspect-ratio: 1;
+    width: 1rem;
+    height: auto;
+    margin-right: 0.4rem;
+    margin-left: 0.1rem;
   }
 `;
 

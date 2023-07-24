@@ -2,6 +2,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { BaseH1, BaseListItem, BaseLink } from "./GlobalStyles";
+import { AlertDialogDemo } from "./AlertDialogDemo";
 
 const Nav = () => {
   const { pathname } = useLocation();
@@ -30,9 +31,21 @@ const Nav = () => {
           </StyledLink>
         </StyledLi>
       </StyledUl>
+      <ButtonWrapper>
+        <AlertDialogDemo />
+      </ButtonWrapper>
     </StyledNav>
   );
 };
+
+const ButtonWrapper = styled.div`
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  bottom: 0;
+  margin-left: 0.3rem;
+  margin-bottom: 0.5rem;
+`;
 
 const StyledUl = styled.ul`
   z-index: 5;

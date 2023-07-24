@@ -17,7 +17,14 @@ const History = ({ history, setHistory, tasks, setTasks }) => {
       {history.length ? (
         <Divider style={{ marginBlock: "1.47rem" }} />
       ) : (
-        <h2 style={{ marginBlock: "1.47rem" }}>There is no log history!</h2>
+        <motion.h2
+          style={{ marginBlock: "1.47rem" }}
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 100, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          There is no log history!
+        </motion.h2>
       )}
       <TasksView>
         {history
