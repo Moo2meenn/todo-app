@@ -8,7 +8,9 @@ const Nav = () => {
   const { pathname } = useLocation();
   return (
     <StyledNav>
-      <StyledH1>TODO</StyledH1>
+      <BaseLink to="/">
+        <StyledH1>TODO</StyledH1>
+      </BaseLink>
       <SelectionBG
         style={{
           transform:
