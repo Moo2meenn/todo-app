@@ -21,7 +21,7 @@ export const BaseH1 = styled.h1`
   font-size: 2rem;
   font-weight: 800;
   padding: 1rem;
-  filter: drop-shadow(0px 2px 2.5px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(0px 1px 2.5px rgba(0, 0, 0, 0.2));
 `;
 
 export const BaseH2 = styled.h2`
@@ -29,7 +29,7 @@ export const BaseH2 = styled.h2`
   font-size: 1.6rem;
   font-weight: 600;
   padding-inline: 0.8rem;
-  filter: drop-shadow(0px 2px 2.5px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(0px 1px 2.5px rgba(0, 0, 0, 0.2));
 `;
 
 export const BaseButton = styled.button`
@@ -44,7 +44,7 @@ export const BaseButton = styled.button`
   margin-inline: 0.2rem;
   transition: 0.1s;
   font-weight: 600;
-  filter: drop-shadow(0px 2px 2.5px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(0px 1px 2.5px rgba(0, 0, 0, 0.2));
 
   &:hover {
     cursor: pointer;
@@ -57,7 +57,7 @@ export const BaseButton = styled.button`
     height: auto;
     margin-right: 0.4rem;
     margin-left: 0.1rem;
-    filter: drop-shadow(0px 2px 2.5px rgba(0, 0, 0, 0.2));
+    filter: drop-shadow(0px 1px 2.5px rgba(0, 0, 0, 0.2));
   }
 `;
 

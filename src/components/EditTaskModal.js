@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { styled, keyframes } from "styled-components";
-import { BaseButton } from "./GlobalStyles";
+import { BaseButton, BaseH2 } from "./GlobalStyles";
 
 const EditTaskModal = ({
   setTasks,
@@ -56,7 +56,7 @@ const EditTaskModal = ({
   }
 
   return (
-    <Dialog.Root open={open} onOpenChange={setOpen}>
+    <StyledRoot open={open} onOpenChange={setOpen}>
       <Dialog.Trigger asChild>
         <BaseButton
           style={{
@@ -83,7 +83,23 @@ const EditTaskModal = ({
       <Dialog.Portal>
         <StyledDialogOverlay />
         <StyledDialogContent>
-          <h2>Modifying: {task.name}</h2>
+          <Dialog.Close>
+            <StyledSVG
+              width="14"
+              height="14"
+              viewBox="0 0 14 14"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.26968 6.69542L13.0648 1.91146C13.2748 1.70147 13.3927 1.41667 13.3927 1.11971C13.3927 0.822742 13.2748 0.53794 13.0648 0.327954C12.8548 0.117969 12.57 0 12.273 0C11.9761 0 11.6913 0.117969 11.4813 0.327954L6.69733 5.12307L1.91336 0.327954C1.70338 0.117969 1.41857 -2.21256e-09 1.12161 0C0.824645 2.21256e-09 0.539843 0.117969 0.329857 0.327954C0.119872 0.53794 0.00190311 0.822742 0.0019031 1.11971C0.0019031 1.41667 0.119872 1.70147 0.329857 1.91146L5.12497 6.69542L0.329857 11.4794C0.225337 11.5831 0.142377 11.7064 0.0857625 11.8423C0.0291481 11.9782 0 12.1239 0 12.2711C0 12.4183 0.0291481 12.5641 0.0857625 12.7C0.142377 12.8359 0.225337 12.9592 0.329857 13.0629C0.433525 13.1674 0.55686 13.2504 0.692751 13.307C0.828641 13.3636 0.974397 13.3927 1.12161 13.3927C1.26882 13.3927 1.41458 13.3636 1.55047 13.307C1.68636 13.2504 1.80969 13.1674 1.91336 13.0629L6.69733 8.26777L11.4813 13.0629C11.585 13.1674 11.7083 13.2504 11.8442 13.307C11.9801 13.3636 12.1258 13.3927 12.273 13.3927C12.4203 13.3927 12.566 13.3636 12.7019 13.307C12.8378 13.2504 12.9611 13.1674 13.0648 13.0629C13.1693 12.9592 13.2523 12.8359 13.3089 12.7C13.3655 12.5641 13.3947 12.4183 13.3947 12.2711C13.3947 12.1239 13.3655 11.9782 13.3089 11.8423C13.2523 11.7064 13.1693 11.5831 13.0648 11.4794L8.26968 6.69542Z"
+                fill="#b3b3b3"
+              />
+            </StyledSVG>
+          </Dialog.Close>
+          <StyledH2>
+            Modifying: <span>{task.name}</span>
+          </StyledH2>
           <StyledForm onSubmit={handleEdit}>
             <StyledName
               name="name"
@@ -99,37 +115,82 @@ const EditTaskModal = ({
               placeholder="Insert category name"
               maxLength="32"
             />
-            <BaseButton type="submit">Modify</BaseButton>
+            <BaseButton
+              type="submit"
+              style={{
+                backgroundColor: "#1AD586",
+                color: "white",
+                border: "0.1rem solid #2BE395",
+              }}
+            >
+              <svg
+                width="52"
+                height="52"
+                viewBox="0 0 52 52"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M50.556 17.9656L33.4927 0.90233C33.2307 0.646521 32.9216 0.443736 32.5827 0.305116C32.2301 0.161833 31.8541 0.0847104 31.4736 0.0776062H8.72255C6.45982 0.0776062 4.28977 0.976472 2.68977 2.57646C1.08978 4.17645 0.190918 6.34651 0.190918 8.60924V42.7358C0.190918 44.9985 1.08978 47.1685 2.68977 48.7685C4.28977 50.3685 6.45982 51.2674 8.72255 51.2674H42.8491C45.1118 51.2674 47.2819 50.3685 48.8818 48.7685C50.4818 47.1685 51.3807 44.9985 51.3807 42.7358V19.9847C51.3829 19.6105 51.3111 19.2395 51.1696 18.893C51.0281 18.5465 50.8195 18.2313 50.556 17.9656ZM17.2542 5.76536H28.6297V11.4531H17.2542V5.76536ZM34.3174 45.5796H17.2542V37.048C17.2542 36.2938 17.5538 35.5704 18.0871 35.0371C18.6205 34.5038 19.3438 34.2041 20.0981 34.2041H31.4736C32.2278 34.2041 32.9512 34.5038 33.4845 35.0371C34.0178 35.5704 34.3174 36.2938 34.3174 37.048V45.5796ZM45.6929 42.7358C45.6929 43.49 45.3933 44.2134 44.86 44.7467C44.3267 45.28 43.6033 45.5796 42.8491 45.5796H40.0052V37.048C40.0052 34.7853 39.1063 32.6152 37.5063 31.0152C35.9063 29.4152 33.7363 28.5164 31.4736 28.5164H20.0981C17.8353 28.5164 15.6653 29.4152 14.0653 31.0152C12.4653 32.6152 11.5664 34.7853 11.5664 37.048V45.5796H8.72255C7.96831 45.5796 7.24495 45.28 6.71162 44.7467C6.17829 44.2134 5.87867 43.49 5.87867 42.7358V8.60924C5.87867 7.85499 6.17829 7.13164 6.71162 6.59831C7.24495 6.06498 7.96831 5.76536 8.72255 5.76536H11.5664V14.297C11.5664 15.0512 11.866 15.7746 12.3994 16.3079C12.9327 16.8412 13.6561 17.1409 14.4103 17.1409H31.4736C32.2278 17.1409 32.9512 16.8412 33.4845 16.3079C34.0178 15.7746 34.3174 15.0512 34.3174 14.297V9.77523L45.6929 21.1507V42.7358Z"
+                  fill="white"
+                />
+              </svg>
+              Save
+            </BaseButton>
           </StyledForm>
         </StyledDialogContent>
       </Dialog.Portal>
-    </Dialog.Root>
+    </StyledRoot>
   );
 };
+
+const StyledH2 = styled(BaseH2)`
+  font-weight: 300;
+  span {
+    font-weight: 600;
+  }
+`;
 
 const StyledForm = styled.form`
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  align-items: center;
+  gap: 0.5rem;
   padding: 0.6rem;
-  border-radius: 1.3rem;
-  margin: 1rem 2rem 0rem 0rem;
-  background-color: lightblue;
+  margin-top: 1rem;
   justify-content: space-between;
+  button {
+    width: fit-content;
+  }
 `;
 
 const StyledName = styled.input`
-  background-color: white;
+  background-color: #f0f0f0;
   border: none;
   outline: none;
   border-radius: 0.7rem;
   padding: 0.2rem 0.8rem;
-  height: 2rem;
+  height: 2.4rem;
   width: 100%;
-  margin-right: 0.6rem;
-  font-size: 1.6rem;
-  color: #1f1f1f;
+  margin-inline: 0.3rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #303547;
+  transition: 0.4s;
+  filter: drop-shadow(0px 1px 2.5px rgba(0, 0, 0, 0.1));
+  text-shadow: 0px 1px 2.5px rgba(0, 0, 0, 0.1);
+  &::placeholder {
+    font-weight: 200;
+    color: #cacaca;
+  }
+  &:hover {
+    background-color: #e3e3e3;
+    border-radius: 20px;
+  }
+  &:focus {
+    border-radius: 20px;
+  }
 `;
 
 const overlayShow = keyframes`
@@ -152,14 +213,20 @@ const contentShow = keyframes`
   }
 `;
 
+const StyledRoot = styled(Dialog.Root)``;
+
 const StyledDialogOverlay = styled(Dialog.Overlay)`
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: rgba(0, 0, 0, 0.55);
+  z-index: 3;
   position: fixed;
   inset: 0;
   animation: ${overlayShow} 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(2px);
 `;
 
 const StyledDialogContent = styled(Dialog.Content)`
+  z-index: 5;
+
   background-color: white;
   border-radius: 6px;
   box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
@@ -173,10 +240,22 @@ const StyledDialogContent = styled(Dialog.Content)`
   max-height: 85vh;
   padding: 25px;
   animation: ${contentShow} 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0px 1px 2.5px rgba(0, 0, 0, 0.2));
+  text-shadow: 0px 1px 2.5px rgba(0, 0, 0, 0.2);
 
   &:focus {
     outline: none;
   }
+`;
+
+const StyledSVG = styled.svg`
+  position: absolute;
+  right: 1.5rem;
+  top: 1.5rem;
+  width: auto;
+  cursor: pointer;
+  height: 1rem;
+  filter: drop-shadow(0px 0.5px 2.5px rgba(0, 0, 0, 0.15));
 `;
 
 export default EditTaskModal;

@@ -2,8 +2,22 @@ import styled from "styled-components";
 import { BaseButton } from "./GlobalStyles";
 import { v4 as uuidv4 } from "uuid";
 import { motion } from "framer-motion";
+import { useState, useRef } from "react";
 
 const CreateTask = ({ tasks, setTasks, setHistory, onNewCategory }) => {
+  const [nameInput, setNameInput] = useState("");
+  const [categoryInput, setCategoryInput] = useState("");
+  const nameRef = useRef(null);
+  const categoryRef = useRef(null);
+
+  const handleNameEdit = (e) => {
+    setNameInput(e.target.value);
+  };
+
+  const handleCategoryEdit = (e) => {
+    setCategoryInput(e.target.value);
+  };
+
   function handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -40,23 +54,34 @@ const CreateTask = ({ tasks, setTasks, setHistory, onNewCategory }) => {
         status: "Created",
       },
     ]);
+
+    setNameInput("");
+    setCategoryInput("");
+    nameRef.current.blur();
+    categoryRef.current.blur();
   }
   return (
     <StyledForm
       onSubmit={handleSubmit}
       initial={{ opacity: 0, scale: 0.8, transformOrigin: "left center" }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.3 }}
     >
       <StyledName
         name="name"
         type="text"
+        ref={nameRef}
+        value={nameInput}
+        onChange={handleNameEdit}
         placeholder="Insert task name"
         maxLength="32"
       />
       <StyledName
         name="category"
         type="text"
+        ref={categoryRef}
+        value={categoryInput}
+        onChange={handleCategoryEdit}
         placeholder="Insert category name"
         maxLength="32"
       />
@@ -94,8 +119,8 @@ const StyledForm = styled(motion.form)`
   background-color: #fcfcfc;
   border: 0.2rem solid #f0f0f0;
   justify-content: space-between;
-  filter: drop-shadow(0px 2px 2.5px rgba(0, 0, 0, 0.2));
-  text-shadow: 0px 2px 2.5px rgba(0, 0, 0, 0.2);
+  filter: drop-shadow(0px 1px 2.5px rgba(0, 0, 0, 0.2));
+  text-shadow: 0px 1px 2.5px rgba(0, 0, 0, 0.2);
 `;
 
 const StyledName = styled.input`
@@ -110,11 +135,19 @@ const StyledName = styled.input`
   font-size: 1.3rem;
   font-weight: 600;
   color: #303547;
-  filter: drop-shadow(0px 2px 2.5px rgba(0, 0, 0, 0.1));
+  transition: 0.4s;
+  filter: drop-shadow(0px 1px 2.5px rgba(0, 0, 0, 0.1));
   text-shadow: 0px 1px 2.5px rgba(0, 0, 0, 0.1);
   &::placeholder {
     font-weight: 200;
     color: #cacaca;
+  }
+  &:hover {
+    background-color: #e3e3e3;
+    border-radius: 20px;
+  }
+  &:focus {
+    border-radius: 20px;
   }
 `;
 

@@ -78,7 +78,7 @@ const ButtonWrapper = styled.div`
 `;
 
 const StyledUl = styled.ul`
-  z-index: 5;
+  z-index: 2;
 `;
 
 const SelectionBG = styled.div`

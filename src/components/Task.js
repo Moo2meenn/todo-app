@@ -87,8 +87,8 @@ const StyledDiv = styled.div`
   border-radius: 1.3rem;
   background-color: #fcfcfc;
   border: 0.2rem solid #f0f0f0;
-  filter: drop-shadow(0px 2px 2.5px rgba(0, 0, 0, 0.2));
-  text-shadow: 0px 2px 2.5px rgba(0, 0, 0, 0.2);
+  filter: drop-shadow(0px 1px 2.5px rgba(0, 0, 0, 0.2));
+  text-shadow: 0px 1px 2.5px rgba(0, 0, 0, 0.2);
   transition: 0.2s;
   &:hover {
     background-color: #e7e7e7;

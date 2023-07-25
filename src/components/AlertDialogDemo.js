@@ -24,17 +24,25 @@ export const AlertDialogDemo = () => {
             This action cannot be undone. This will permanently delete your
             browser local storage.
           </AlertDialog.Description>
-          <div style={{ display: "flex", gap: 25, justifyContent: "flex-end" }}>
+          <div style={{ display: "flex", gap: 5, justifyContent: "flex-end" }}>
             <AlertDialog.Cancel asChild>
-              <BaseButton>Cancel</BaseButton>
+              <BaseButton
+                style={{
+                  backgroundColor: "#eeeeee",
+                  color: "#303547",
+                  border: "0.1rem solid #e9e9e9",
+                }}
+              >
+                Cancel
+              </BaseButton>
             </AlertDialog.Cancel>
             <AlertDialog.Action asChild>
               <BaseButton
                 onClick={clearHandler}
                 style={{
-                  backgroundColor: "red",
+                  backgroundColor: "#FF5A5A",
                   color: "white",
-                  paddingInline: ".8rem",
+                  border: "0.1rem solid #FF7A7A",
                 }}
               >
                 Yes, clear everything
