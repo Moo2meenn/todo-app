@@ -29,7 +29,6 @@ export const BaseH2 = styled.h2`
   font-size: 1.6rem;
   font-weight: 600;
   padding-inline: 0.8rem;
-  filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.2));
 `;
 
 export const BaseButton = styled.button`
@@ -57,7 +56,7 @@ export const BaseButton = styled.button`
     height: auto;
     margin-right: 0.4rem;
     margin-left: 0.1rem;
-    filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.2));
+    filter: drop-shadow(1px 1px 0px rgba(0, 0, 0, 0.2));
   }
 `;
 

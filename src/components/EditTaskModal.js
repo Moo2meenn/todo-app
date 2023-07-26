@@ -146,6 +146,7 @@ const EditTaskModal = ({
 
 const StyledH2 = styled(BaseH2)`
   font-weight: 300;
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
   span {
     font-weight: 600;
   }
