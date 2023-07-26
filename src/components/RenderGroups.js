@@ -94,7 +94,7 @@ const TitleDivider = styled.div`
 
 const StyledCategoryTitle = styled(motion.h1)`
   color: #303547;
-  text-shadow: 0px 1px 2.5px rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
 `;
 
 const CategoryWrapper = styled(motion.div)`

@@ -105,7 +105,7 @@ const CreateTask = ({ tasks, setTasks, setHistory, onNewCategory }) => {
             fill="white"
           />
         </svg>
-        Add
+        <span>Add</span>
       </BaseButton>
     </StyledForm>
   );
@@ -119,8 +119,19 @@ const StyledForm = styled(motion.form)`
   background-color: #fcfcfc;
   border: 0.2rem solid #f0f0f0;
   justify-content: space-between;
-  filter: drop-shadow(0px 1px 2.5px rgba(0, 0, 0, 0.2));
-  text-shadow: 0px 1px 2.5px rgba(0, 0, 0, 0.2);
+  filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.2));
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
+  @media only screen and (width < 768px) {
+    button {
+      padding: 0.4rem 0.2rem 0.4rem 0.4rem;
+      span {
+        display: none;
+      }
+      svg {
+        display: block;
+      }
+    }
+  }
 `;
 
 const StyledName = styled.input`
@@ -136,8 +147,8 @@ const StyledName = styled.input`
   font-weight: 600;
   color: #303547;
   transition: 0.4s;
-  filter: drop-shadow(0px 1px 2.5px rgba(0, 0, 0, 0.1));
-  text-shadow: 0px 1px 2.5px rgba(0, 0, 0, 0.1);
+  filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.1));
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
   &::placeholder {
     font-weight: 200;
     color: #cacaca;
@@ -148,6 +159,9 @@ const StyledName = styled.input`
   }
   &:focus {
     border-radius: 20px;
+  }
+  @media only screen and (width < 768px) {
+    font-size: 0.7rem;
   }
 `;
 

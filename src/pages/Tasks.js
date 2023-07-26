@@ -83,12 +83,15 @@ const Tasks = ({ tasks, setTasks, setHistory }) => {
 };
 
 const StyledH1 = styled(motion.h1)`
-  text-shadow: 0px 1px 2.5px rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
   color: #3a4056;
+  @media only screen and (width < 768px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const StyledH2 = styled(motion.h2)`
-  text-shadow: 0px 1px 2.5px rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
   color: #3a4056;
 `;
 

@@ -56,7 +56,7 @@ const Task = ({ task, setTasks, setHistory }) => {
                 fill="white"
               />
             </StyledSVG>
-            Restore
+            <span>Restore</span>
           </BaseButton>
         )}
         {task.status === "Completed" && (
@@ -80,7 +80,7 @@ const Task = ({ task, setTasks, setHistory }) => {
                 fill="white"
               />
             </StyledSVG>
-            Undo
+            <span>Undo</span>
           </BaseButton>
         )}
         {task.status === "Completed" ? (
@@ -154,15 +154,18 @@ const StyledCategory = styled.h3`
   border-radius: 12px;
   outline: 0.1rem solid #3a4056;
   outline-offset: 0.1rem;
-  filter: drop-shadow(0px 1px 2.5px rgba(0, 0, 0, 0.2));
-  text-shadow: 0px 1px 2.5px rgba(0, 0, 0, 0.2);
+  filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.2));
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
+  @media only screen and (width < 768px) {
+    font-size: 0.8rem;
+  }
 `;
 
 const StyledSVG = styled.svg`
   width: auto;
   height: 1rem;
   margin-inline: 0.5rem;
-  filter: drop-shadow(0px 0.5px 2.5px rgba(0, 0, 0, 0.15));
+  filter: drop-shadow(1px 1px 0px rgba(0, 0, 0, 0.2));
 `;
 
 const StyledDiv = styled(motion.div)`
@@ -173,11 +176,22 @@ const StyledDiv = styled(motion.div)`
   border-radius: 1.3rem;
   background-color: #fcfcfc;
   border: 0.2rem solid #f0f0f0;
-  filter: drop-shadow(0px 1px 2.5px rgba(0, 0, 0, 0.2));
-  text-shadow: 0px 1px 2.5px rgba(0, 0, 0, 0.2);
+  filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.2));
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
   transition: 0.2s;
   &:hover {
     background-color: #e7e7e7;
+  }
+  @media only screen and (width < 768px) {
+    button {
+      padding: 0.4rem 0.2rem 0.4rem 0.4rem;
+      span {
+        display: none;
+      }
+      svg {
+        display: block;
+      }
+    }
   }
 `;
 
@@ -190,12 +204,22 @@ const InnerDiv = styled.div`
   align-items: center;
 `;
 
-const StyledName = styled(BaseH2)``;
+const StyledName = styled(BaseH2)`
+  @media only screen and (width < 768px) {
+    font-size: 1.3rem;
+    text-shadow: 0.4px 0.4px 0px rgba(0, 0, 0, 0.2);
+  }
+`;
 
 const StyledH3 = styled.h3`
   margin-inline: 0.5rem;
   font-weight: 500;
   font-size: 0.9rem;
+  @media only screen and (width < 768px) {
+    font-size: 0.5rem;
+    text-shadow: 0.4px 0.4px 0px rgba(0, 0, 0, 0.2);
+    display: none;
+  }
 `;
 
 export default Task;

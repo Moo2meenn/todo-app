@@ -44,7 +44,7 @@ const Task = ({ task, setTasks, setHistory, setExpandedCategories }) => {
               fill="white"
             />
           </svg>
-          Mark as Done
+          <span>Mark as Done</span>
         </BaseButton>
         <EditTaskModal
           task={task}
@@ -72,7 +72,7 @@ const Task = ({ task, setTasks, setHistory, setExpandedCategories }) => {
               fill="white"
             />
           </svg>
-          Delete
+          <span>Delete</span>
         </BaseButton>
       </InnerDiv>
     </StyledDiv>
@@ -87,11 +87,22 @@ const StyledDiv = styled.div`
   border-radius: 1.3rem;
   background-color: #fcfcfc;
   border: 0.2rem solid #f0f0f0;
-  filter: drop-shadow(0px 1px 2.5px rgba(0, 0, 0, 0.2));
-  text-shadow: 0px 1px 2.5px rgba(0, 0, 0, 0.2);
+  filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.2));
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
   transition: 0.2s;
   &:hover {
     background-color: #e7e7e7;
+  }
+  @media only screen and (width < 768px) {
+    button {
+      padding: 0.4rem 0.2rem 0.4rem 0.4rem;
+      span {
+        display: none;
+      }
+      svg {
+        display: block;
+      }
+    }
   }
 `;
 
@@ -102,6 +113,10 @@ const InnerDiv = styled.div`
   flex-direction: row;
 `;
 
-const StyledName = styled(BaseH2)``;
+const StyledName = styled(BaseH2)`
+  @media only screen and (width < 768px) {
+    font-size: 1.3rem;
+  }
+`;
 
 export default Task;

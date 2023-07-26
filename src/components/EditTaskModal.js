@@ -57,7 +57,7 @@ const EditTaskModal = ({
 
   return (
     <StyledRoot open={open} onOpenChange={setOpen}>
-      <Dialog.Trigger asChild>
+      <StyledDialogTrigger asChild>
         <BaseButton
           style={{
             backgroundColor: "#4F40FF",
@@ -77,9 +77,9 @@ const EditTaskModal = ({
               fill="white"
             />
           </svg>
-          Modify
+          <span>Modify</span>
         </BaseButton>
-      </Dialog.Trigger>
+      </StyledDialogTrigger>
       <Dialog.Portal>
         <StyledDialogOverlay />
         <StyledDialogContent>
@@ -178,8 +178,8 @@ const StyledName = styled.input`
   font-weight: 600;
   color: #303547;
   transition: 0.4s;
-  filter: drop-shadow(0px 1px 2.5px rgba(0, 0, 0, 0.1));
-  text-shadow: 0px 1px 2.5px rgba(0, 0, 0, 0.1);
+  filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.1));
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
   &::placeholder {
     font-weight: 200;
     color: #cacaca;
@@ -224,6 +224,17 @@ const StyledDialogOverlay = styled(Dialog.Overlay)`
   backdrop-filter: blur(2px);
 `;
 
+const StyledDialogTrigger = styled(Dialog.Trigger)`
+  @media only screen and (width < 768px) {
+    span {
+      display: none;
+    }
+    svg {
+      display: block;
+    }
+  }
+`;
+
 const StyledDialogContent = styled(Dialog.Content)`
   z-index: 5;
 
@@ -240,8 +251,8 @@ const StyledDialogContent = styled(Dialog.Content)`
   max-height: 85vh;
   padding: 25px;
   animation: ${contentShow} 150ms cubic-bezier(0.16, 1, 0.3, 1);
-  filter: drop-shadow(0px 1px 2.5px rgba(0, 0, 0, 0.2));
-  text-shadow: 0px 1px 2.5px rgba(0, 0, 0, 0.2);
+  filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.2));
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
 
   &:focus {
     outline: none;
@@ -255,7 +266,7 @@ const StyledSVG = styled.svg`
   width: auto;
   cursor: pointer;
   height: 1rem;
-  filter: drop-shadow(0px 0.5px 2.5px rgba(0, 0, 0, 0.15));
+  filter: drop-shadow(1px 1px 0px rgba(0, 0, 0, 0.2));
 `;
 
 export default EditTaskModal;
