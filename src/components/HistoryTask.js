@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import * as Tooltip from "@radix-ui/react-tooltip";
 import "./tooltip.css";
 
-const Task = ({ task, setTasks, setHistory }) => {
+const HistoryTask = ({ task, setTasks, setHistory }) => {
   const restoreHandler = () => {
     setTasks((tasks) => [...tasks, task]);
 
@@ -238,4 +238,4 @@ const StyledH3 = styled.h3`
   }
 `;
 
-export default Task;
+export default HistoryTask;
