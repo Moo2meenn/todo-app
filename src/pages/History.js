@@ -11,7 +11,7 @@ const History = ({ history, setHistory, setTasks }) => {
         initial={{ opacity: 0, x: -10 }}
         animate={{ opacity: 100, x: 0 }}
         transition={{ duration: 0.5 }}
-        style={{ color: "#303547" }}
+        style={{ color: "var(--color-darkcyan)" }}
       >
         History
       </StyledH1>{" "}
@@ -47,12 +47,12 @@ const History = ({ history, setHistory, setTasks }) => {
 
 const StyledH2 = styled(motion.h2)`
   text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
-  color: #3a4056;
+  color: var(--color-midcyan);
 `;
 
 const StyledH1 = styled(motion.h1)`
   text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
-  color: #3a4056;
+  color: var(--color-midcyan);
 `;
 
 export default History;

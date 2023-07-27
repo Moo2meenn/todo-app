@@ -91,7 +91,7 @@ const SelectionBG = styled.div`
   width: 100%;
   height: 3rem;
   position: absolute;
-  background-color: #3a4056;
+  background-color: var(--color-midcyan);
   transition: 0.3s;
 `;
 
@@ -114,7 +114,7 @@ const StyledNav = styled.div`
   padding: 0;
   position: absolute;
   flex-direction: column;
-  background-color: #303547;
+  background-color: var(--color-darkcyan);
   transition: 0.5s;
   transform: ${({ $toggle }) =>
     $toggle ? "translateX(-100%)" : "translateX(0)"};

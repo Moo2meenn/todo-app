@@ -43,9 +43,9 @@ const HistoryTask = ({ task, setTasks, setHistory }) => {
                   <BaseButton
                     onClick={restoreHandler}
                     style={{
-                      backgroundColor: "#4F40FF",
+                      backgroundColor: "var(--color-blue)",
                       color: "white",
-                      border: "0.1rem solid #6A5DFF",
+                      border: "0.1rem solid var(--color-lightblue)",
                     }}
                   >
                     <StyledSVG
@@ -69,9 +69,9 @@ const HistoryTask = ({ task, setTasks, setHistory }) => {
                   <BaseButton
                     onClick={undoHandler}
                     style={{
-                      backgroundColor: "#FF5F2C",
+                      backgroundColor: "var(--color-orange)",
                       color: "white",
-                      border: "0.1rem solid #FF7E55",
+                      border: "0.1rem solid var(--color-lightorange)",
                     }}
                   >
                     <StyledSVG
@@ -99,7 +99,7 @@ const HistoryTask = ({ task, setTasks, setHistory }) => {
                   >
                     <path
                       d="M14 0C6.3 0 0 6.3 0 14C0 21.7 6.3 28 14 28C21.7 28 28 21.7 28 14C28 6.3 21.7 0 14 0ZM19.88 11.62L13.16 18.34C12.6 18.9 11.76 18.9 11.2 18.34L8.12 15.26C7.56 14.7 7.56 13.86 8.12 13.3C8.68 12.74 9.52 12.74 10.08 13.3L12.18 15.4L17.92 9.66C18.48 9.1 19.32 9.1 19.88 9.66C20.44 10.22 20.44 11.06 19.88 11.62Z"
-                      fill="#2BE395"
+                      fill="var(--color-lightgreen)"
                     />
                   </StyledSVG>
                 ) : task.status === "Deleted" ? (
@@ -112,7 +112,7 @@ const HistoryTask = ({ task, setTasks, setHistory }) => {
                   >
                     <path
                       d="M14 0C6.3 0 0 6.3 0 14C0 21.7 6.3 28 14 28C21.7 28 28 21.7 28 14C28 6.3 21.7 0 14 0ZM19.18 17.22C19.74 17.78 19.74 18.62 19.18 19.18C18.62 19.74 17.78 19.74 17.22 19.18L14 15.96L10.78 19.18C10.22 19.74 9.38 19.74 8.82 19.18C8.26 18.62 8.26 17.78 8.82 17.22L12.04 14L8.82 10.78C8.26 10.22 8.26 9.38 8.82 8.82C9.38 8.26 10.22 8.26 10.78 8.82L14 12.04L17.22 8.82C17.78 8.26 18.62 8.26 19.18 8.82C19.74 9.38 19.74 10.22 19.18 10.78L15.96 14L19.18 17.22Z"
-                      fill="#FF7A7A"
+                      fill="var(--color-lightred)"
                     />
                   </StyledSVG>
                 ) : task.status === "Modified" ? (
@@ -127,7 +127,7 @@ const HistoryTask = ({ task, setTasks, setHistory }) => {
                       fill-rule="evenodd"
                       clip-rule="evenodd"
                       d="M14 28C21.732 28 28 21.732 28 14C28 6.26801 21.732 0 14 0C6.26801 0 0 6.26801 0 14C0 21.732 6.26801 28 14 28ZM8.00002 20.0012V16.6101C7.9994 16.5049 8.01958 16.4005 8.05938 16.3031C8.09918 16.2057 8.15782 16.117 8.23195 16.0423L13.7823 10.4999L16.0377 8.23657C16.112 8.16161 16.2005 8.10211 16.2979 8.06151C16.3954 8.0209 16.4999 8 16.6055 8C16.7111 8 16.8156 8.0209 16.9131 8.06151C17.0106 8.10211 17.099 8.16161 17.1734 8.23657L20.5644 11.6676C20.6393 11.7419 20.6988 11.8304 20.7394 11.9278C20.78 12.0253 20.8009 12.1298 20.8009 12.2354C20.8009 12.341 20.78 12.4455 20.7394 12.543C20.6988 12.6404 20.6393 12.7289 20.5644 12.8032L18.293 15.0266L12.7586 20.569C12.6839 20.6431 12.5953 20.7018 12.4978 20.7416C12.4004 20.7814 12.2961 20.8015 12.1908 20.8009H8.79978C8.58767 20.8009 8.38425 20.7167 8.23426 20.5667C8.08427 20.4167 8.00002 20.2133 8.00002 20.0012ZM18.8689 12.1954L16.6055 9.93208L15.4698 11.0677L17.7332 13.3311L18.8689 12.1954ZM14.3422 12.1954L9.59955 16.938V19.2014H11.8629L16.6055 14.4588L14.3422 12.1954Z"
-                      fill="#6A5DFF"
+                      fill="var(--color-lightblue)"
                     />
                   </StyledSVG>
                 ) : task.status === "Created" ? (
@@ -140,7 +140,7 @@ const HistoryTask = ({ task, setTasks, setHistory }) => {
                   >
                     <path
                       d="M23.9115 4.0885C18.4602 -1.36283 9.53982 -1.36283 4.0885 4.0885C-1.36283 9.53982 -1.36283 18.4602 4.0885 23.9115C9.53982 29.3628 18.4602 29.3628 23.9115 23.9115C29.3628 18.4602 29.3628 9.53982 23.9115 4.0885ZM15.3876 19.9469C15.3876 20.7398 14.7929 21.3345 14 21.3345C13.2071 21.3345 12.6124 20.7398 12.6124 19.9469V15.3876H8.0531C7.26018 15.3876 6.66549 14.7929 6.66549 14C6.66549 13.2071 7.26018 12.6124 8.0531 12.6124H12.6124V8.0531C12.6124 7.26018 13.2071 6.66549 14 6.66549C14.7929 6.66549 15.3876 7.26018 15.3876 8.0531V12.6124H19.9469C20.7398 12.6124 21.3345 13.2071 21.3345 14C21.3345 14.7929 20.7398 15.3876 19.9469 15.3876H15.3876V19.9469Z"
-                      fill="#6A5DFF"
+                      fill="var(--color-lightblue)"
                     />
                   </StyledSVG>
                 ) : null}
@@ -163,12 +163,12 @@ const StyledCategory = styled.h3`
   color: white;
   margin-block: auto;
   margin-inline: 0.2rem;
-  background-color: #303547;
+  background-color: var(--color-darkcyan);
   padding-inline: 0.8rem;
   padding-block: 0.3rem;
   font-size: 1rem;
   border-radius: 12px;
-  outline: 0.1rem solid #3a4056;
+  outline: 0.1rem solid var(--color-midcyan);
   outline-offset: 0.1rem;
   filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.2));
   text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
@@ -190,13 +190,13 @@ const StyledDiv = styled(motion.div)`
   padding: 0.6rem;
   width: 100%;
   border-radius: 1.3rem;
-  background-color: #fcfcfc;
-  border: 0.2rem solid #f0f0f0;
+  background-color: var(--color-lightwhite);
+  border: 0.2rem solid var(--color-darkwhite);
   filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.2));
   text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
   transition: 0.2s;
   &:hover {
-    background-color: #e7e7e7;
+    background-color: var(--color-midgray);
   }
   @media only screen and (width < 768px) {
     button {
@@ -212,7 +212,7 @@ const StyledDiv = styled(motion.div)`
 `;
 
 const InnerDiv = styled.div`
-  color: #a1a8c2;
+  color: var(--color-lightcyan);
   margin-left: auto;
   margin-right: 0;
   padding-inline: 0rem;

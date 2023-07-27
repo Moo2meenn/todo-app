@@ -46,7 +46,7 @@ const Tasks = ({ tasks, setTasks, setHistory }) => {
         initial={{ opacity: 0, x: -10 }}
         animate={{ opacity: 100, x: 0 }}
         transition={{ duration: 0.5 }}
-        style={{ color: "#303547" }}
+        style={{ color: "var(--color-darkcyan)" }}
       >
         Tasks
       </StyledH1>
@@ -84,7 +84,7 @@ const Tasks = ({ tasks, setTasks, setHistory }) => {
 
 const StyledH1 = styled(motion.h1)`
   text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
-  color: #3a4056;
+  color: var(--color-midcyan);
   @media only screen and (width < 768px) {
     font-size: 1.5rem;
   }
@@ -92,7 +92,7 @@ const StyledH1 = styled(motion.h1)`
 
 const StyledH2 = styled(motion.h2)`
   text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
-  color: #3a4056;
+  color: var(--color-midcyan);
 `;
 
 export default Tasks;

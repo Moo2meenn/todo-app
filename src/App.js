@@ -78,7 +78,7 @@ const StyledButton = styled.button`
   justify-content: center;
   height: 2rem;
   width: 2rem;
-  border: 2px solid #303547;
+  border: 2px solid var(--color-darkcyan);
   border-radius: 0.6rem;
   z-index: 10;
   margin: 0;
@@ -87,16 +87,17 @@ const StyledButton = styled.button`
   svg {
     path {
       transition: 0.4s;
-      fill: #303547;
+      fill: var(--color-darkcyan);
       @media only screen and (width < 768px) {
-        fill: ${({ $toggle }) => ($toggle ? "#303547" : "#f5f5f5")};
+        fill: ${({ $toggle }) =>
+          $toggle ? "var(--color-darkcyan)" : "var(--color-lightgray)"};
       }
     }
   }
 `;
 
 const StyledContainer = styled.div`
-  background-color: #f5f5f5;
+  background-color: var(--color-lightgray);
   height: 100vh;
   width: 85%;
   display: flex;

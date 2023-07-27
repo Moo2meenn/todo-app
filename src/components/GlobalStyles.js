@@ -2,6 +2,30 @@ import { createGlobalStyle, styled } from "styled-components";
 import { Link } from "react-router-dom";
 
 const GlobalStyles = createGlobalStyle`
+
+html{
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-offwhite: #eeeeee;
+  --color-darkoffwhite: #e9e9e9;
+  --color-lightwhite: #FCFCFC;
+  --color-darkwhite: #F0F0F0;
+  --color-lightgray: #F5F5F5;
+  --color-midgray: #dfdfdf;
+  --color-gray: #BBBBBB;
+  --color-darkcyan: #303547;
+  --color-midcyan: #3A4056;
+  --color-lightcyan: #a1a8c2;
+  --color-green: #1AD586;
+  --color-lightgreen: #2BE395;
+  --color-blue: #4F40FF;
+  --color-lightblue: #6A5DFF;
+  --color-red: #FF5A5A;
+  --color-lightred: #FF7A7A;
+  --color-orange: #FF5F2C;
+  --color-lightorange: #FF7E55;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -17,7 +41,7 @@ body{
 `;
 
 export const BaseH1 = styled.h1`
-  color: #303547;
+  color: var(--color-darkcyan);
   font-size: 2rem;
   font-weight: 800;
   padding: 1rem;
@@ -25,7 +49,7 @@ export const BaseH1 = styled.h1`
 `;
 
 export const BaseH2 = styled.h2`
-  color: #303547;
+  color: var(--color-darkcyan);
   font-size: 1.6rem;
   font-weight: 600;
   padding-inline: 0.8rem;

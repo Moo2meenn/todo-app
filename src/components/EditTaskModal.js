@@ -60,9 +60,9 @@ const EditTaskModal = ({
       <StyledDialogTrigger asChild>
         <BaseButton
           style={{
-            backgroundColor: "#4F40FF",
+            backgroundColor: "var(--color-blue)",
             color: "white",
-            border: "0.1rem solid #6A5DFF",
+            border: "0.1rem solid var(--color-lightblue)",
           }}
         >
           <svg
@@ -93,7 +93,7 @@ const EditTaskModal = ({
             >
               <path
                 d="M8.26968 6.69542L13.0648 1.91146C13.2748 1.70147 13.3927 1.41667 13.3927 1.11971C13.3927 0.822742 13.2748 0.53794 13.0648 0.327954C12.8548 0.117969 12.57 0 12.273 0C11.9761 0 11.6913 0.117969 11.4813 0.327954L6.69733 5.12307L1.91336 0.327954C1.70338 0.117969 1.41857 -2.21256e-09 1.12161 0C0.824645 2.21256e-09 0.539843 0.117969 0.329857 0.327954C0.119872 0.53794 0.00190311 0.822742 0.0019031 1.11971C0.0019031 1.41667 0.119872 1.70147 0.329857 1.91146L5.12497 6.69542L0.329857 11.4794C0.225337 11.5831 0.142377 11.7064 0.0857625 11.8423C0.0291481 11.9782 0 12.1239 0 12.2711C0 12.4183 0.0291481 12.5641 0.0857625 12.7C0.142377 12.8359 0.225337 12.9592 0.329857 13.0629C0.433525 13.1674 0.55686 13.2504 0.692751 13.307C0.828641 13.3636 0.974397 13.3927 1.12161 13.3927C1.26882 13.3927 1.41458 13.3636 1.55047 13.307C1.68636 13.2504 1.80969 13.1674 1.91336 13.0629L6.69733 8.26777L11.4813 13.0629C11.585 13.1674 11.7083 13.2504 11.8442 13.307C11.9801 13.3636 12.1258 13.3927 12.273 13.3927C12.4203 13.3927 12.566 13.3636 12.7019 13.307C12.8378 13.2504 12.9611 13.1674 13.0648 13.0629C13.1693 12.9592 13.2523 12.8359 13.3089 12.7C13.3655 12.5641 13.3947 12.4183 13.3947 12.2711C13.3947 12.1239 13.3655 11.9782 13.3089 11.8423C13.2523 11.7064 13.1693 11.5831 13.0648 11.4794L8.26968 6.69542Z"
-                fill="#b3b3b3"
+                fill="var(--color-midgray)"
               />
             </StyledSVG>
           </Dialog.Close>
@@ -118,9 +118,9 @@ const EditTaskModal = ({
             <BaseButton
               type="submit"
               style={{
-                backgroundColor: "#1AD586",
+                backgroundColor: "var(--color-green)",
                 color: "white",
-                border: "0.1rem solid #2BE395",
+                border: "0.1rem solid var(--color-lightgreen)",
               }}
             >
               <svg
@@ -167,7 +167,7 @@ const StyledForm = styled.form`
 `;
 
 const StyledName = styled.input`
-  background-color: #f0f0f0;
+  background-color: var(--color-darkwhite);
   border: none;
   outline: none;
   border-radius: 0.7rem;
@@ -177,16 +177,16 @@ const StyledName = styled.input`
   margin-inline: 0.3rem;
   font-size: 1.3rem;
   font-weight: 600;
-  color: #303547;
+  color: var(--color-darkcyan);
   transition: 0.4s;
   filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.1));
   text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
   &::placeholder {
     font-weight: 200;
-    color: #cacaca;
+    color: var(--color-midgray);
   }
   &:hover {
-    background-color: #e3e3e3;
+    background-color: var(--color-lightgray);
     border-radius: 20px;
   }
   &:focus {

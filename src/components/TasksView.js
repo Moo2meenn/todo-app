@@ -34,11 +34,11 @@ const StyledScrollAreaScrollbar = styled(ScrollArea.Scrollbar)`
   padding: 1px;
   border-radius: 20px;
   margin: 10px;
-  background: #dbdbdb;
+  background: var(--color-midgray);
   transition: background 160ms ease-out;
 
   &:hover {
-    background: #c0c0c0;
+    background: var(--color-darkoffwhite);
   }
 
   &[data-orientation="vertical"] {
@@ -53,7 +53,7 @@ const StyledScrollAreaScrollbar = styled(ScrollArea.Scrollbar)`
 
 const StyledScrollAreaThumb = styled(ScrollArea.Thumb)`
   flex: 1;
-  background: #3a4056;
+  background: var(--color-midcyan);
   border-radius: 20px;
   position: relative;
   margin: 2px 1px 10px 1px;
@@ -72,5 +72,5 @@ const StyledScrollAreaThumb = styled(ScrollArea.Thumb)`
 `;
 
 const StyledScrollAreaCorner = styled(ScrollArea.Corner)`
-  background: #000000;
+  background: var(--color-black);
 `;

@@ -27,9 +27,9 @@ const Task = ({ task, setTasks, setHistory, setExpandedCategories }) => {
         <BaseButton
           onClick={doneHandler}
           style={{
-            backgroundColor: "#1AD586",
+            backgroundColor: "var(--color-green)",
             color: "white",
-            border: "0.1rem solid #2BE395",
+            border: "0.1rem solid var(--color-lightgreen)",
           }}
         >
           <svg
@@ -55,9 +55,9 @@ const Task = ({ task, setTasks, setHistory, setExpandedCategories }) => {
         <BaseButton
           onClick={deleteHandler}
           style={{
-            backgroundColor: "#FF5A5A",
+            backgroundColor: "var(--color-red)",
             color: "white",
-            border: "0.1rem solid #FF7A7A",
+            border: "0.1rem solid var(--color-lightred)",
           }}
         >
           <svg
@@ -85,13 +85,13 @@ const StyledDiv = styled.div`
   padding: 0.6rem;
   width: 100%;
   border-radius: 1.3rem;
-  background-color: #fcfcfc;
-  border: 0.2rem solid #f0f0f0;
+  background-color: var(--color-lightwhite);
+  border: 0.2rem solid var(--color-darkwhite);
   filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.2));
   text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
   transition: 0.2s;
   &:hover {
-    background-color: #e7e7e7;
+    background-color: var(--color-midgray);
   }
   @media only screen and (width < 768px) {
     button {

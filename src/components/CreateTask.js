@@ -88,9 +88,9 @@ const CreateTask = ({ tasks, setTasks, setHistory, onNewCategory }) => {
       <BaseButton
         type="submit"
         style={{
-          backgroundColor: "#4F40FF",
+          backgroundColor: "var(--color-blue)",
           color: "white",
-          border: "0.1rem solid #6A5DFF",
+          border: "0.1rem solid var(--color-lightblue)",
         }}
       >
         <svg
@@ -116,8 +116,8 @@ const StyledForm = styled(motion.form)`
   padding: 0.6rem;
   border-radius: 1.3rem;
   margin: 1rem 2rem 0rem 5px;
-  background-color: #fcfcfc;
-  border: 0.2rem solid #f0f0f0;
+  background-color: var(--color-lightwhite);
+  border: 0.2rem solid var(--color-darkwhite);
   justify-content: space-between;
   filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.2));
   text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
@@ -135,7 +135,7 @@ const StyledForm = styled(motion.form)`
 `;
 
 const StyledName = styled.input`
-  background-color: #f0f0f0;
+  background-color: var(--color-darkwhite);
   border: none;
   outline: none;
   border-radius: 0.7rem;
@@ -145,16 +145,16 @@ const StyledName = styled.input`
   margin-inline: 0.3rem;
   font-size: 1.3rem;
   font-weight: 600;
-  color: #303547;
+  color: var(--color-darkcyan);
   transition: 0.4s;
   filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.1));
   text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
   &::placeholder {
     font-weight: 200;
-    color: #cacaca;
+    color: var(--color-midgray);
   }
   &:hover {
-    background-color: #e3e3e3;
+    background-color: var(--color-lightgray);
     border-radius: 20px;
   }
   &:focus {

@@ -9,7 +9,7 @@ button {
   font-size: 15px;
   line-height: 1;
   color: white;
-  background-color: #303547;
+  background-color: var(--color-darkcyan);
   box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px, hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
   user-select: none;
   animation-duration: 400ms;
@@ -31,7 +31,7 @@ button {
 
 .TooltipArrow {
     transform: translateY(-1px);
-  fill: #303547;
+  fill: var(--color-darkcyan);
 }
 
 @keyframes slideUpAndFade {

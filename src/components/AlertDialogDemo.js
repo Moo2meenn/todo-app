@@ -28,9 +28,9 @@ export const AlertDialogDemo = () => {
             <AlertDialog.Cancel asChild>
               <BaseButton
                 style={{
-                  backgroundColor: "#eeeeee",
-                  color: "#303547",
-                  border: "0.1rem solid #e9e9e9",
+                  backgroundColor: "var(--color-offwhite)",
+                  color: "var(--color-darkcyan)",
+                  border: "0.1rem solid var(--color-darkoffwhite)",
                 }}
               >
                 Cancel
@@ -40,9 +40,9 @@ export const AlertDialogDemo = () => {
               <BaseButton
                 onClick={clearHandler}
                 style={{
-                  backgroundColor: "#FF5A5A",
+                  backgroundColor: "var(--color-red)",
                   color: "white",
-                  border: "0.1rem solid #FF7A7A",
+                  border: "0.1rem solid var(--color-lightred)",
                 }}
               >
                 Yes, clear everything
